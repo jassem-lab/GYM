@@ -86,6 +86,63 @@ jQuery(window).on('load', function() {
     }, 1000);
 });
      </script>
+***********************************-->
+
+ <!-- Required vendors -->
+ <script src="./template/vendor/global/global.min.js"></script>
+	<script src="./template/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+	<script src="./template/vendor/chart.js/Chart.bundle.min.js"></script>
+    <script src="./template/js/custom.min.js"></script>
+	<script src="./template/js/deznav-init.js"></script>
+	<script src="./template/vendor/owl-carousel/owl.carousel.js"></script>
+	
+	<!-- Chart piety plugin files -->
+    <script src="./vendor/peity/jquery.peity.min.js"></script>
+	
+	<!-- Apex Chart -->
+	<script src="./vendor/apexchart/apexchart.js"></script>
+	
+	<!-- Dashboard 1 -->
+	<script src="./js/dashboard/dashboard-1.js"></script>
+
+    <!-- Required vendors -->
+    <script src="./template/vendor/global/global.min.js"></script>
+	<script src="./template/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="./template/js/custom.min.js"></script>
+	<script src="./template/js/deznav-init.js"></script>
+	
+    
+
+
+    <!-- Daterangepicker -->
+    <!-- momment js is must -->
+    <script src="./template/vendor/moment/moment.min.js"></script>
+    <script src="./template/vendor/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- clockpicker -->
+    <script src="./template/vendor/clockpicker/js/bootstrap-clockpicker.min.js"></script>
+    <!-- asColorPicker -->
+    <script src="./template/vendor/jquery-asColor/jquery-asColor.min.js"></script>
+    <script src="./template/vendor/jquery-asGradient/jquery-asGradient.min.js"></script>
+    <script src="./template/vendor/jquery-asColorPicker/js/jquery-asColorPicker.min.js"></script>
+    <!-- Material color picker -->
+    <script src="../template/vendor/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+    <!-- pickdate -->
+    <script src="./template/vendor/pickadate/picker.js"></script>
+    <script src="./template/vendor/pickadate/picker.time.js"></script>
+    <script src="./template/vendor/pickadate/picker.date.js"></script>
+
+
+
+    <!-- Daterangepicker -->
+    <script src="./template/js/plugins-init/bs-daterange-picker-init.js"></script>
+    <!-- Clockpicker init -->
+    <script src="./template/js/plugins-init/clock-picker-init.js"></script>
+    <!-- asColorPicker init -->
+    <script src="./template/js/plugins-init/jquery-asColorPicker.init.js"></script>
+    <!-- Material color picker init -->
+    <script src="./template/js/plugins-init/material-date-picker-init.js"></script>
+    <!-- Pickdate -->
+    <script src="./template/js/plugins-init/pickadate-init.js"></script>
      </body>
 
      </html>

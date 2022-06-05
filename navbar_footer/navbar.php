@@ -10,7 +10,10 @@ include('connexion/cn.php');
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Gymove - Fitness Bootstrap Admin Dashboard</title>
     <!-- Favicon icon -->
-
+    <link rel="icon" type="image/png" sizes="16x16" href="./template/images/favicon.png">
+	<link rel="stylesheet" href="./template/vendor/chartist/css/chartist.min.css">
+    <link href="./template/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+	<link href="./template/vendor/owl-carousel/owl.carousel.css" rel="stylesheet">
 
 
     <link rel="icon" type="image/png" sizes="16x16" href="./template/images/favicon.png">
@@ -18,6 +21,17 @@ include('connexion/cn.php');
     <link href="./template/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
     <link href="./template/vendor/owl-carousel/owl.carousel.css" rel="stylesheet">
     <link href="./template/css/style.css" rel="stylesheet">
+     <!-- Daterange picker -->
+     <link href="./template/vendor/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <!-- Clockpicker -->
+    <link href="./template/vendor/clockpicker/css/bootstrap-clockpicker.min.css" rel="stylesheet">
+    <!-- asColorpicker -->
+    <link href="./template/vendor/jquery-asColorPicker/css/asColorPicker.min.css" rel="stylesheet">
+    <!-- Material color picker -->
+    <link href="./template/vendor/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet">
+    <!-- Pick date -->
+    <link rel="stylesheet" href="./template/vendor/pickadate/themes/default.css">
+    <link rel="stylesheet" href="./template/vendor/pickadate/themes/default.date.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
@@ -166,8 +180,6 @@ include('connexion/cn.php');
                                             class="ti-arrow-right"></i></a>
                                 </div>
                             </li>
-
-
                             <li class="nav-item dropdown header-profile">
                                 <a class="nav-link" href="javascript:void(0)" role="button" data-toggle="dropdown">
                                     <img src="./template/images/profile/17.jpg" width="20" alt="" />
@@ -213,7 +225,13 @@ include('connexion/cn.php');
         ***********************************-->
         <div class="deznav">
             <div class="deznav-scroll">
-                <ul class="metismenu">
+                <ul class="metismenu" id="menu">
+                    
+                <li><a href="index.php" aria-expanded="false">
+                            <i class="flaticon-381-television"></i>
+                            <span class="nav-text">Tableau de bord</span>
+                        </a>
+                    </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-381-networking"></i>
                             <span class="nav-text">Table de base</span>
@@ -227,39 +245,26 @@ include('connexion/cn.php');
                             <li><a href="gest_abo_type.php">Gestion des types des abonnements</a></li>
                         </ul>
                     </li>
-                    <li><a href="index.php" aria-expanded="false">
-                            <i class="flaticon-381-television"></i>
-                            <span class="nav-text">Tableau de bord</span>
-                        </a>
-                    </li>
-
-
                     <li><a href="calendar.php" aria-expanded="false">
                             <i class="flaticon-381-calendar"></i>
                             <span class="nav-text">calendrier des évènements</span>
                         </a>
                     </li>
-
-
                     <li><a href="gest_reservation.php" aria-expanded="false">
                             <i class="flaticon-381-controls-3"></i>
                             <span class="nav-text">Gestion de reservation</span>
                         </a>
                     </li>
-
-
                     <li><a href="gest_abonnement.php" aria-expanded="false">
                             <i class="flaticon-381-user"></i>
                             <span class="nav-text">Gestion des abonnements</span>
                         </a>
                     </li>
-
                     <li><a href="gest_paie.php" aria-expanded="false">
                             <i class="flaticon-381-network"></i>
                             <span class="nav-text">Gestion de paiement</span>
                         </a>
                     </li>
-
                     <li><a href="rapports.php" aria-expanded="false">
                             <i class="flaticon-381-notepad"></i>
                             <span class="nav-text">Rapports</span>

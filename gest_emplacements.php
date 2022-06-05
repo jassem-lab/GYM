@@ -2,7 +2,7 @@
 <script>
     function Supprimer(id) {
         if (confirm('Confirmez-vous cette action?')) {
-            document.location.href = "page_js/supprimerService.php?ID=" + id;
+            document.location.href = "page_js/supprimerEmplacement.php?ID=" + id;
         }
     }
 </script>
@@ -18,34 +18,34 @@ if(isset($_GET['ID'])){
 if(isset($_POST['enregistrer_mail'])){	
 
 
-$service				=	addslashes($_POST["service"]) ;
+$emplacement				=	addslashes($_POST["emplacement"]) ;
 $description				=	addslashes($_POST["description"]) ;	
 
 
 
 if($id=="0")
     {
-        $sql="INSERT INTO `gym_services`(`service`, `description`,`archive`) VALUES 
-        ('".$service."','".$description."', '0' )";
+        $sql="INSERT INTO `gym_emplacement`(`emplacement`, `description`,`disponible`) VALUES 
+        ('".$emplacement."','".$description."', '0' )";
     }
 else{
-        $sql="UPDATE `gym_services` SET `service`='".$service."',`description`='".$description."',`archive`='0' WHERE id=".$id;
+        $sql="UPDATE `gym_emplacement` SET `emplacement`='".$emplacement."',`description`='".$description."',`archive`='0' WHERE id=".$id;
     }
     $req=mysql_query($sql);
 
     echo '<SCRIPT LANGUAGE="JavaScript">document.location.href="?suc=1" </SCRIPT>';
 
 }
-$service				=	"";
+$emplacement				=	"";
 $description			=	"";
 $archive				=	"";
 
 
-$req="select * from gym_services where id=".$id;
+$req="select * from gym_emplacement where id=".$id;
 $query=mysql_query($req);
 while($enreg=mysql_fetch_array($query))
 {
-    $service				=	$enreg["service"] ;
+    $emplacement			=	$enreg["emplacement"] ;
     $description			=	$enreg["description"] ;
     $archive				=	$enreg["archive"] ;
 
@@ -59,7 +59,7 @@ while($enreg=mysql_fetch_array($query))
         <div class="page-titles">
             <ol class="breadcrumb">
 
-                <li class="breadcrumb-item active"><a href="javascript:void(0)">Gestion des Services</a></li>
+++6666            <li class="breadcrumb-item active"><a href="javascript:void(0)">Gestion des Salles</a></li>
             </ol>
         </div>
         <!-- row -->
@@ -67,7 +67,7 @@ while($enreg=mysql_fetch_array($query))
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Gestion des Services</h4>
+                        <h4 class="card-title">Gestion des Salles</h4>
                         <!-- <br> Utilisateur : <?php echo $_SESSION['gym_USER']; ?> -->
                     </div>
                     <div class="card-body">
@@ -76,12 +76,12 @@ while($enreg=mysql_fetch_array($query))
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="nom">Service 
+                                            <label class="col-lg-4 col-form-label" for="nom">Salle 
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="service"
-                                                    name="service" placeholder="Service .." value="<?php echo $service ?>">
+                                                <input type="text" class="form-control" id="emplacement"
+                                                    name="emplacement" placeholder="Salle .." value="<?php echo $emplacement ?>">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -110,7 +110,7 @@ while($enreg=mysql_fetch_array($query))
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Liste des Services</h4>
+                        <h4 class="card-title">Liste des Salles</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -119,37 +119,37 @@ while($enreg=mysql_fetch_array($query))
                                     <tr>
 
 
-                                        <th>Service</th>
+                                        <th>Salle</th>
                                         <th>Description</th>
-                                        <th>Etat</th>
+                                        <th>Disponible</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
                                     $id					=	0;
-                                    $service		    =	"";
+                                    $emplacement	    =	"";
                                     $description		=	"";
                                    
-                                    $req="select * from gym_services where 1=1  order by service ";
+                                    $req="select * from gym_emplacement where 1=1  order by emplacement ";
                                     $query=mysql_query($req);
                                     while($enreg=mysql_fetch_array($query))
                                     {
                                         $id				    	=	$enreg["id"] ;	
-                                        $service				=	$enreg["service"] ;
+                                        $emplacement			=	$enreg["emplacement"] ;
                                         $description			=	$enreg["description"] ;
-                                        $archive				=	$enreg["archive"] ;
+                                        $disponible				=	$enreg["disponible"] ;
                                 ?>
 
 
                                     <tr>
                                         <td>
-                                        <?php echo $service; ?>
+                                        <?php echo $emplacement; ?>
                                         </td>
                                         <td><?php echo $description; ?></td>
                                         <td>
                                             <div class="d-flex align-items-center">
-                                                <?php  if($enreg["archive"] = 0){
+                                                <?php  if($enreg["disponible"] = 0){
                                              echo '<i
                                              class="fa fa-circle text-danger mr-1"></i>'; 
                                         }else{
@@ -160,7 +160,7 @@ while($enreg=mysql_fetch_array($query))
                                         </td>
                                         <td>
                                             <div class="d-flex">
-                                                <a href="gest_service.php?ID=<?php echo $id ?>" class="btn btn-primary shadow btn-xs sharp mr-1"><i
+                                                <a href="gest_emplacements.php?ID=<?php echo $id ?>" class="btn btn-primary shadow btn-xs sharp mr-1"><i
                                                         class="fa fa-pencil"></i></a>
                                                 <a  href="Javascript:Supprimer('<?php echo $id; ?>')" class="btn btn-danger shadow btn-xs sharp"><i
                                                         class="fa fa-trash"></i></a>
