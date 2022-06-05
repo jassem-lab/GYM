@@ -1,5 +1,11 @@
 <?php include('navbar_footer/navbar.php') ?>
-
+<script>
+    function Supprimer(id) {
+        if (confirm('Confirmez-vous cette action?')) {
+            document.location.href = "page_js/supprimerCoach.php?ID=" + id;
+        }
+    }
+</script>
 <?php
 
 if(isset($_GET['ID'])){
@@ -36,8 +42,8 @@ else{
 $nom				=	"";
 $prenom				=	"";
 $mail				=	"";
-$motdepasse			=	"";
-$idprofil			=	"";
+$specialite			=	"";
+$tel		    	=	"";
 
 $req="select * from gym_coachs where id=".$id;
 $query=mysql_query($req);
@@ -80,7 +86,7 @@ while($enreg=mysql_fetch_array($query))
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="nom"
-                                                    name="nom" placeholder="Nom ..">
+                                                    name="nom" placeholder="Nom .." value="<?php echo $nom ?>">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -89,7 +95,7 @@ while($enreg=mysql_fetch_array($query))
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="prenom"
-                                                    name="prenom" placeholder="Prénom..">
+                                                    name="prenom" placeholder="Prénom.." value="<?php echo $prenom ?>">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -98,7 +104,7 @@ while($enreg=mysql_fetch_array($query))
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="val-email" name="mail"
-                                                    placeholder="Votre email..">
+                                                    placeholder="Votre email.." value="<?php echo $mail ?>">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -107,7 +113,7 @@ while($enreg=mysql_fetch_array($query))
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="specialite"
-                                                    name="specialite" placeholder="Specialite..">
+                                                    name="specialite" placeholder="Specialite.." value="<?php echo $specialite ?>">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -116,7 +122,7 @@ while($enreg=mysql_fetch_array($query))
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="number" class="form-control" id="tel"
-                                                    name="tel" placeholder="Téléphone..">
+                                                    name="tel" placeholder="Téléphone.." value="<?php echo $tel ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -199,7 +205,6 @@ while($enreg=mysql_fetch_array($query))
                                 
                                 ?>
 
-
                                     <tr>
                                         <td>
                                         <?php echo $nom; ?> <?php echo $prenom; ?>
@@ -218,18 +223,18 @@ while($enreg=mysql_fetch_array($query))
                                             <div class="d-flex align-items-center">
                                                 <?php  if($enreg["archive"] = 0){
                                              echo '<i
-                                             class="fa fa-circle text-success mr-1"></i>'; 
+                                             class="fa fa-circle text-danger mr-1"></i>'; 
                                         }else{
                                             echo '<i
-                                            class="fa fa-circle text-danger mr-1"></i>' ; 
+                                            class="fa fa-circle text-success mr-1"></i>' ; 
                                         } ;  ?>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="d-flex">
-                                                <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i
+                                                <a href="gest_coachs.php?ID=<?php echo $id ; ?>" class="btn btn-primary shadow btn-xs sharp mr-1"><i
                                                         class="fa fa-pencil"></i></a>
-                                                <a href="#" class="btn btn-danger shadow btn-xs sharp"><i
+                                                <a href="Javascript:Supprimer('<?php echo $id; ?>')" class="btn btn-danger shadow btn-xs sharp"><i
                                                         class="fa fa-trash"></i></a>
                                             </div>
                                         </td>

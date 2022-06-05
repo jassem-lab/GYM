@@ -1,5 +1,11 @@
 <?php include('navbar_footer/navbar.php') ?>
-
+<script>
+    function Supprimer(id) {
+        if (confirm('Confirmez-vous cette action?')) {
+            document.location.href = "page_js/supprimerService.php?ID=" + id;
+        }
+    }
+</script>
 <?php
 
 if(isset($_GET['ID'])){
@@ -156,7 +162,7 @@ while($enreg=mysql_fetch_array($query))
                                             <div class="d-flex">
                                                 <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i
                                                         class="fa fa-pencil"></i></a>
-                                                <a href="#" class="btn btn-danger shadow btn-xs sharp"><i
+                                                <a  href="Javascript:Supprimer('<?php echo $id; ?>')" class="btn btn-danger shadow btn-xs sharp"><i
                                                         class="fa fa-trash"></i></a>
                                             </div>
                                         </td>
