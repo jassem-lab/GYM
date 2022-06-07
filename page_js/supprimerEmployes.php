@@ -4,7 +4,7 @@ include('../connexion/cn.php');
 	
 	$id   = $_GET["ID"] ;
 		
-	$sql = "delete from `gym_coachs` WHERE id=".$id;
+	$sql = "delete from `gym_employes` WHERE id=".$id;
 	$requete = mysql_query($sql) ;
 	
 	echo '<SCRIPT LANGUAGE="JavaScript">document.location.href="../gest_coachs.php" </SCRIPT>';

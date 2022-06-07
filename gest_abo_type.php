@@ -19,19 +19,16 @@ if(isset($_POST['enregistrer_mail'])){
 
 
 $type_abonnement				=	addslashes($_POST["type_abonnement"]) ;
-$montant				=	addslashes($_POST["montant"]) ;	
-$date_debut				=	addslashes($_POST["date_debut"]) ;	
-$date_fin				=	addslashes($_POST["date_fin"]) ;	
 
 
 
 if($id=="0")
     {
-        $sql="INSERT INTO `gym_type_abonnement`(`type_abonnement`, `montant`,`date_debut`,`date_fin`) VALUES 
-        ('".$type_abonnement."','".$montant."', '".$date_debut."', '".$date_fin."' )";
+        $sql="INSERT INTO `gym_type_abonnement`(`type_abonnement`) VALUES 
+        ('".$type_abonnement."' )";
     }
 else{
-        $sql="UPDATE `gym_type_abonnement` SET `type_abonnement`='".$type_abonnement."',`montant`='".$montant."',,`date_debut`='".$date_debut."',,`date_fin`='".$date_fin."' WHERE id=".$id;
+        $sql="UPDATE `gym_type_abonnement` SET `type_abonnement`='".$type_abonnement."' WHERE id=".$id;
     }
     $req=mysql_query($sql);
 
@@ -39,21 +36,12 @@ else{
 
 }
 $type_abonnement		=	"";
-$montant		    	=	"";
-$date_debut				=	"";
-$date_fin				=	"";
-
 
 $req="select * from gym_type_abonnement where id=".$id;
 $query=mysql_query($req);
 while($enreg=mysql_fetch_array($query))
 {
     $type_abonnement		=	$enreg["type_abonnement"] ;
-    $montant		    	=	$enreg["montant"] ;
-    $date_debut				=	$enreg["date_debut"] ;
-    $date_fin				=	$enreg["date_fin"] ;
-
-
 }
 
 ?>
@@ -72,7 +60,6 @@ while($enreg=mysql_fetch_array($query))
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">Gestion des Types d'abonnement</h4>
-                        <!-- <br> Utilisateur : <?php echo $_SESSION['gym_USER']; ?> -->
                     </div>
                     <div class="card-body">
                         <div class="form-validation">
@@ -86,32 +73,6 @@ while($enreg=mysql_fetch_array($query))
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="type_abonnement"
                                                     name="type_abonnement" placeholder="Type d'abonnement .." value="<?php echo $type_abonnement ?>">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="montant">Montant
-                                                <span class="text-danger">*</span>
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="number" class="form-control" id="montant"
-                                                    name="montant" placeholder="Montant.." value="<?php echo $montant ?>">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="montant">Date début
-                                                <span class="text-danger">*</span>
-                                            </label>
-                                            <div class="col-lg-6">
-                                            <input name="datepicker" class="datepicker-default form-control" id="datepicker">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="montant">Date Fin
-                                                <span class="text-danger">*</span>
-                                            </label>
-                                            <div class="col-lg-6">
-                                            <input name="datepicker" class="datepicker-default form-control" id="datepicker">
-                                            
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -141,9 +102,6 @@ while($enreg=mysql_fetch_array($query))
 
 
                                         <th>Type d'abonnement</th>
-                                        <th>Montant</th>
-                                        <th>Date début</th>
-                                        <th>Date fin</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -151,32 +109,19 @@ while($enreg=mysql_fetch_array($query))
                                     <?php
                                     $id					=	0;
                                     $type_abonnement    =	"";
-                                    $montant	    	=	"";
-                                    $date_debut	    	=	"";
-                                    $date_fin		    =	"";
                                    
-                                    $req="select * from gym_type_abonnement where 1=1  order by montant ";
+                                    $req="select * from gym_type_abonnement where 1=1  order by type_abonnement ";
                                     $query=mysql_query($req);
                                     while($enreg=mysql_fetch_array($query))
                                     {
                                         $id				        	=	$enreg["id"] ;	
                                         $type_abonnement			=	$enreg["type_abonnement"] ;
-                                        $montant			        =	$enreg["montant"] ;
-                                        $date_debut				    =	$enreg["date_debut"] ;
-                                        $date_fin			    	=	$enreg["date_fin"] ;
                                 ?>
 
 
                                     <tr>
                                         <td>
                                         <?php echo $type_abonnement; ?>
-                                        </td>
-                                        <td><?php echo $montant; ?></td>
-                                        <td>
-                                          <?php echo $ $date_debut ?>
-                                        </td>
-                                        <td>
-                                          <?php echo $ $date_fin ?>
                                         </td>
                                         <td>
                                             <div class="d-flex">

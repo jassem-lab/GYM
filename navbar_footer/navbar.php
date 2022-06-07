@@ -15,6 +15,7 @@ include('connexion/cn.php');
     <link href="./template/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
 	<link href="./template/vendor/owl-carousel/owl.carousel.css" rel="stylesheet">
 
+   
 
     <link rel="icon" type="image/png" sizes="16x16" href="./template/images/favicon.png">
     <link rel="stylesheet" href="./template/vendor/chartist/css/chartist.min.css">
@@ -182,10 +183,16 @@ include('connexion/cn.php');
                             </li>
                             <li class="nav-item dropdown header-profile">
                                 <a class="nav-link" href="javascript:void(0)" role="button" data-toggle="dropdown">
-                                    <img src="./template/images/profile/17.jpg" width="20" alt="" />
+                                
                                     <div class="header-info">
-                                        <span class="text-black"><strong>Jassem Gaaloul</strong></span>
-                                        <p class="fs-12 mb-0">Super Admin</p>
+                                        <span class="text-black"><strong><?php echo $_SESSION['gym_USER']; ?></strong></span>
+                                        <p class="fs-12 mb-0"><i class="la la-user" width=""></i> | <?php 
+                                         $reqp = "select * from gym_profil where id=".$_SESSION['gym_PROFIL'] ; 
+                                        $queryp = mysql_query($reqp) ; 
+                                        while($enregp = mysql_fetch_array($queryp)){
+                                            echo $enregp["profil"] ; 
+                                        }
+                                        ?></p>
                                     </div>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
@@ -239,10 +246,16 @@ include('connexion/cn.php');
                         <ul aria-expanded="false">
                             <li><a href="gest_utilisateurs.php">Gestion des utilisateurs</a></li>
                             <li><a href="gest_client.php">Gestion des clients</a></li>
+                            <li><a href="gest_fonction.php">Gestion des fonctions</a></li>
+                            <li><a href="gest_coachs.php">Gestion des coachs</a></li>
+                            <li><a href="gest_employes.php">Gestion des employés</a></li>
+                            <li><a href="gest_produit.php">Gestion des produits</a></li>
                             <li><a href="gest_service.php">Gestion des services</a></li>
-                            <li><a href="gest_coachs.php">Gestion des entraineurs</a></li>
+                            <li><a href="gest_activite.php">Gestion des activités</a></li>
                             <li><a href="gest_emplacements.php">Gestion d'Emplacements</a></li>
                             <li><a href="gest_abo_type.php">Gestion des types des abonnements</a></li>
+                            <li><a href="gest_tranche_paiement.php">Gestion des tranches des paiements</a></li>
+                            <li><a href="gest_mode_paiement.php">Gestion des modes des paiements</a></li>
                         </ul>
                     </li>
                     <li><a href="calendar.php" aria-expanded="false">
@@ -271,10 +284,7 @@ include('connexion/cn.php');
                         </a>
                     </li>
                 </ul>
-                <div class="copyright">
-                    <p><strong>Gym & Fitness Admin</strong> © 2022 All Rights Reserved</p>
-                    <p>Made with <span class="heart"></span> by Delta Web IT</p>
-                </div>
+              
             </div>
         </div>
     </div>

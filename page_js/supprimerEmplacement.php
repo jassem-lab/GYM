@@ -9,5 +9,5 @@ include('../connexion/cn.php');
 	
 	echo '<SCRIPT LANGUAGE="JavaScript">document.location.href="../gest_emplacements.php" </SCRIPT>';
 	
-  
+
 ?>

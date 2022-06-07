@@ -80,7 +80,7 @@ while($enreg=mysql_fetch_array($query))
         <div class="page-titles">
             <ol class="breadcrumb">
 
-                <li class="breadcrumb-item active"><a href="javascript:void(0)">Gestion des Coachs</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Gestion des Employes</a></li>
             </ol>
         </div>
         <!-- row -->
@@ -88,7 +88,7 @@ while($enreg=mysql_fetch_array($query))
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Gestion des Coachs</h4>
+                        <h4 class="card-title">Gestion des Employes</h4>
                         <!-- <br> Utilisateur : <?php echo $_SESSION['gym_USER']; ?> -->
                     </div>
                     <div class="card-body">
@@ -128,8 +128,17 @@ while($enreg=mysql_fetch_array($query))
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                            <select class="form-control select2" name="fonction"  disabled>
-                                                <option value="2"> Coach </option>
+                                            <select class="form-control select2" name="fonction" required>
+                                                <option value=""> Sélectionner une fonction </option>
+                                                <?php
+                                                $req="select * from gym_fonctions order by fonction";
+                                                $query=mysql_query($req);
+                                                while($enreg=mysql_fetch_array($query)){
+                                                ?>
+                                                <option value="<?php echo $enreg['id']; ?>"
+                                                    <?php if($fonction==$enreg['id']) {?> selected <?php } ?>>
+                                                    <?php echo $enreg['fonction']; ?></option>
+                                                <?php } ?>
                                             </select>
                                         </div>
                                         </div>
@@ -241,7 +250,7 @@ while($enreg=mysql_fetch_array($query))
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Liste des Coachs</h4>
+                        <h4 class="card-title">Liste des Employes</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -270,7 +279,7 @@ while($enreg=mysql_fetch_array($query))
                                     $nomprofil			=	"";
                                     $fonc               =   "";
                                     $profil				=	"0";
-                                    $req="select * from gym_employes where 1=1 and fonction = 2 order by nom ";
+                                    $req="select * from gym_employes where 1=1  order by nom ";
                                     $query=mysql_query($req);
                                     while($enreg=mysql_fetch_array($query))
                                     {

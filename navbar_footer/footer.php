@@ -29,6 +29,7 @@
         Scripts
     ***********************************-->
      <!-- Required vendors -->
+
      <script src="./template/vendor/global/global.min.js"></script>
      <script src="./template/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
      <script src="./template/vendor/chart.js/Chart.bundle.min.js"></script>
@@ -44,66 +45,16 @@
 
      <!-- Dashboard 1 -->
      <script src="./template/js/dashboard/dashboard-1.js"></script>
-     <script>
-function carouselReview() {
-    /*  testimonial one function by = owl.carousel.js */
-    jQuery('.testimonial-one').owlCarousel({
-        loop: true,
-        autoplay: true,
-        margin: 30,
-        nav: false,
-        dots: false,
-        left: true,
-        navText: ['<i class="fa fa-chevron-left" aria-hidden="true"></i>',
-            '<i class="fa fa-chevron-right" aria-hidden="true"></i>'
-        ],
-        responsive: {
-            0: {
-                items: 1
-            },
-            484: {
-                items: 2
-            },
-            882: {
-                items: 3
-            },
-            1200: {
-                items: 2
-            },
-
-            1540: {
-                items: 3
-            },
-            1740: {
-                items: 4
-            }
-        }
-    })
-}
-jQuery(window).on('load', function() {
-    setTimeout(function() {
-        carouselReview();
-    }, 1000);
-});
-     </script>
-***********************************-->
-
- <!-- Required vendors -->
- <script src="./template/vendor/global/global.min.js"></script>
-	<script src="./template/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-	<script src="./template/vendor/chart.js/Chart.bundle.min.js"></script>
-    <script src="./template/js/custom.min.js"></script>
-	<script src="./template/js/deznav-init.js"></script>
-	<script src="./template/vendor/owl-carousel/owl.carousel.js"></script>
+   
 	
 	<!-- Chart piety plugin files -->
-    <script src="./vendor/peity/jquery.peity.min.js"></script>
+    <script src="./template/vendor/peity/jquery.peity.min.js"></script>
 	
 	<!-- Apex Chart -->
-	<script src="./vendor/apexchart/apexchart.js"></script>
+	<script src="./template/vendor/apexchart/apexchart.js"></script>
 	
 	<!-- Dashboard 1 -->
-	<script src="./js/dashboard/dashboard-1.js"></script>
+	<script src="./template/js/dashboard/dashboard-1.js"></script>
 
     <!-- Required vendors -->
     <script src="./template/vendor/global/global.min.js"></script>
@@ -143,6 +94,62 @@ jQuery(window).on('load', function() {
     <script src="./template/js/plugins-init/material-date-picker-init.js"></script>
     <!-- Pickdate -->
     <script src="./template/js/plugins-init/pickadate-init.js"></script>
+ <!-- Required vendors -->
+ <script src="./template/vendor/global/global.min.js"></script>
+	<script src="./template/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+	<script src="./template/vendor/chart.js/Chart.bundle.min.js"></script>
+    <script src="./template/js/custom.min.js"></script>
+	<script src="./template/js/deznav-init.js"></script>
+	<script src="./template/vendor/owl-carousel/owl.carousel.js"></script>
+	
+	<!-- Chart piety plugin files -->
+    <script src="./template/vendor/peity/jquery.peity.min.js"></script>
+
+	<!-- Apex Chart -->
+	<script src="./template/vendor/apexchart/apexchart.js"></script>
+	
+	<!-- Dashboard 1 -->
+	<script src="./template/js/dashboard/dashboard-1.js"></script>
+	<script>
+		function carouselReview(){
+			/*  testimonial one function by = owl.carousel.js */
+			jQuery('.testimonial-one').owlCarousel({
+				loop:true,
+				autoplay:true,
+				margin:30,
+				nav:false,
+				dots: false,
+				left:true,
+				navText: ['<i class="fa fa-chevron-left" aria-hidden="true"></i>', '<i class="fa fa-chevron-right" aria-hidden="true"></i>'],
+				responsive:{
+					0:{
+						items:1
+					},
+					484:{
+						items:2
+					},
+					882:{
+						items:3
+					},	
+					1200:{
+						items:2
+					},			
+					
+					1540:{
+						items:3
+					},
+					1740:{
+						items:4
+					}
+				}
+			})			
+		}
+		jQuery(window).on('load',function(){
+			setTimeout(function(){
+				carouselReview();
+			}, 1000); 
+		});
+	</script>
      </body>
 
      </html>

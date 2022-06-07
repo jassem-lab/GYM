@@ -72,7 +72,7 @@ while($enreg=mysql_fetch_array($query))
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">Gestion des utilisateurs</h4>
-                        <!-- <br> Utilisateur : <?php echo $_SESSION['gym_USER']; ?> -->
+                    
                     </div>
                     <div class="card-body">
                         <div class="form-validation">
